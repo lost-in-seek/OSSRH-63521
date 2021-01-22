@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>index.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/app/index.css">
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/slide.js"></script>
+  </head>
+  <body>
+	<div class="container">
+		<div class="row border-bottom">
+			<div class="col-md-4 col-sm-4 col-xs-4"><img src="../image/app/goback.png"></div>
+			<div class="col-md-4 col-sm-4 col-xs-4 title">我的空间</div>
+			<div class="col-md-4 col-sm-4 col-xs-4 order">订单</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<div id="temp3">
+					<div class="JQ-content-box">
+						<ul class="JQ-slide-content">
+							<li><a href="#"><img height="100" src="../image/n1.jpg" width="100%" /></a></li>
+							<li><a href="#"><img height="100" src="../image/n2.png" width="100%"></a></li>
+							<li><a href="#"><img height="100" src="../image/n3.jpg" width="100%"></a></li>
+							<li><a href="#"><img height="100" src="../image/n4.jpg" width="100%"></a></li>
+						</ul>
+					</div>
+					<ul class="JQ-slide-nav">
+						<li class="on"></li>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 col-sm-4 col-xs-4 game">
+				<img class="photo-mark-1-1 center-block" src="../image/app/youxi.png">
+				<div class="photo-text">游戏</div>
+			</div>
+			<div class="col-md-4 col-sm-4 col-xs-4">
+				<img class="photo-mark-1-2 center-block" src="../image/app/xiangce.png">
+				<div class="photo-text">图片</div>
+			</div>
+			<div class="col-md-4 col-sm-4 col-xs-4">
+				<img class="photo-mark-1-3 center-block" src="../image/app/wenjian.png">
+				<div class="photo-text">程序</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12 tub-title">精选服务</div>
+		</div>
+		<div class="row no-gutter c-distance">
+			<div class="col-md-6 col-sm-6 col-xs-6 gai-right">
+				<img class="photo-mark-2" src="../image/app/jiugongge.png">
+				<div class="text-wz-1">拼图小游戏</div>
+			</div>
+			<div class="col-md-6 col-sm-6 col-xs-6 gai-left">
+				<div class="row">
+					<div class="col-md-12 col-sm-12 col-xs-12">
+						<img class="photo-mark-3" src="../image/app/wangzhe.png">
+						<div class="text-wz-2">王者最新消息</div>
+					</div>
+					<div class="col-md-12 col-sm-12 col-xs-12">
+						<img class="photo-mark-4" src="../image/app/tongji.png">
+						<div class="text-wz-2">统计信息</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12 tub-title">更多服务建设</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6 col-sm-6 col-xs-6">
+				<img class="photo-mark-5" src="../image/app/quanxian.png">
+				<div class="text-wz-2">用户权限</div>
+			</div>
+			<div class="col-md-6 col-sm-6 col-xs-6">
+				<img class="photo-mark-5" src="../image/app/jianyi.png">
+				<div class="text-wz-2">请提出您的建议</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(function(){
+			$("#temp3").Slide({
+				effect : "fade",
+		    	speed : "normal",
+				timer : 3000
+			});
+		})
+		$(".game").click(function(){
+			window.location.href="http://47.105.171.235:8080/myTest/page/pintu.html";
+		})
+	</script>
+  </body>
+</html>

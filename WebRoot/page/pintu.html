@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>拼图</title>
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <script src="../js/jquery.min.js"></script>
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+    <style type="text/css">
+    	ul,li{
+    		margin:0;
+    		padding:0;
+    		list-style:none;
+    	}
+    	.outline{
+    		width:600px;
+    		height:600px;
+    		margin:30px auto;
+    		background:green;
+    		border:10px solid #fff;
+    		border-radius:5px;
+    		box-shadow:5px 5px 5px #000,-5px -5px 5px #000;
+    	}
+    	li{
+    		width:198px;
+    		height:198px;
+    		float:left;
+    		border:1px solid red;
+    		/* position:absolute; */
+    	}
+    	.tuli{
+    		margin:10px auto;
+    		width:80px;
+    		height:80px;
+    		border:1px solid #000;
+    		display:inline-block;
+    	}
+    	.tuli img{
+    		width:80px;
+    		height:80px;
+    	}
+    	li img{
+    		width:198px;
+    		height:198px;
+    	}
+    	.start{
+    		display:inline-block;
+    		margin-left:40%;
+    		margin-right:300px;
+    	}
+    	.container{
+    		border-top:2px solid #ccc;
+    		padding-top:100px;
+    	}
+    	.goback{
+    		width:55px;
+    		height:45px;
+    		margin:40px;
+    	}
+    </style>
+  </head>
+  <body>
+  	<img class="goback" src="../image/app/goback.png">
+  	<div class="container">
+  		<button class="start">开始</button><div class="tuli"><img src="../image/nnz.png"></div>
+	    <ul class="outline">
+	    	<li><img src="../image/nn1.jpg"></li>
+	    	<li><img src="../image/nn2.jpg"></li>
+	    	<li><img src="../image/nn3.jpg"></li>
+	    	<li><img src="../image/nn4.jpg"></li>
+	    	<li><img src="../image/nn5.jpg"></li>
+	    	<li><img src="../image/nn6.jpg"></li>
+	    	<li><img src="../image/nn7.jpg"></li>
+	    	<li><img src="../image/nn8.jpg"></li>
+	    	<li class="kong"><img src="../image/x.png"></li>
+	    </ul>
+  	</div>
+    <script type="text/javascript">
+    	var wcliArr = $("li");
+    	var liArr = null;
+    	$(".goback").click(function(){
+    		window.history.back(-1); 
+    	});
+    	$(".start").click(function(){
+    		$("li").each(function(){
+    			var this_li = $(this)[0].style;
+   				if(this_li.position){
+	    			this_li.position="";
+	    			this_li.left="";
+	    			this_li.top="";
+	    		}
+    		});
+    		liArr = $("li").splice(0,8);
+    		liArr.sort(()=>{return Math.random()-0.5;}).push($(".kong")[0]);
+    		$(".outline").append(liArr);
+    	})
+    	$("li").each(function(){
+    		var this_li = $(this);
+			this_li.on('click',function(e){
+				var this_li_top = this_li.offset().top;
+				var this_li_left = this_li.offset().left;
+				var kong_top = $(".kong").offset().top;
+				var kong_left = $(".kong").offset().left;
+				//向下(相对kong)
+				if(this_li_left == kong_left && (this_li_top - kong_top) == 200){
+					this_li.offset({top:kong_top,left:kong_left});
+					$(".kong").offset({top:this_li_top,left:kong_left});
+				}
+				//向上
+				if(this_li_left == kong_left && (this_li_top - kong_top) == -200){
+					this_li.offset({top:kong_top,left:kong_left});
+					$(".kong").offset({top:this_li_top,left:kong_left});
+				}
+				//向左
+				if((kong_left - this_li_left) == -200 && this_li_top == kong_top){
+					this_li.offset({top:kong_top,left:kong_left});
+					$(".kong").offset({top:kong_top,left:this_li_left});
+				}
+				//向右
+				if((kong_left - this_li_left) == 200 && this_li_top == kong_top){
+					this_li.offset({top:kong_top,left:kong_left});
+					$(".kong").offset({top:kong_top,left:this_li_left});
+				}
+			})
+    	})
+    </script>
+  </body>
+</html>
